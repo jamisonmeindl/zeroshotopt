@@ -1,0 +1,60 @@
+
+# I/O
+model_size: small
+paths:
+  - 'traj_minmax_data/train_2d_40_length10_dim2_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_2d_40_length20_dim2_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_2d_40_length30_dim2_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_2d_40_length40_dim2_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_3d_40_length10_dim3_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_3d_40_length20_dim3_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_3d_40_length30_dim3_normtraj_minmax_count10000'
+  - 'traj_minmax_data/train_3d_40_length40_dim3_normtraj_minmax_count10000'
+
+valid_paths:
+  - 'traj_minmax_data/valid_2d_40_length10_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length20_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length30_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length40_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length10_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length20_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length30_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length40_dim3_normtraj_minmax_count5000'
+
+sample_type: uniform
+norm_type: traj_minmax
+eval_only: false
+wandb_log: true
+wandb_project: Test
+
+# Training
+batch_size: 64
+gradient_accumulation_steps: 8
+learning_rate: 0.0006
+weight_decay: 0.1
+beta1: 0.9
+beta2: 0.95
+grad_clip: 1.0
+eval_interval: 5000
+save_interval: 5000
+log_interval: 500
+eval_iters: 1
+max_iters: 25000
+decay_lr: true
+warmup_iters: 5000
+
+# Model
+dropout: 0.0
+bias: false
+num_action_bins: 2000
+max_step: 100
+max_dim: 50
+train_dim: 3
+train_length: 50
+test_dim: 2
+compile: true
+init_from: scratch
+
+# System
+dtype: bfloat16
+backend: nccl

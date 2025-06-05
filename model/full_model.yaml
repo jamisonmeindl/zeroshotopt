@@ -1,0 +1,133 @@
+# config.yaml
+
+# I/O
+model_size: large
+paths:
+  - 'traj_minmax_data/train_2d_40_length10_dim2_normtraj_minmax_count500000'
+  - 'traj_minmax_data/train_2d_40_length20_dim2_normtraj_minmax_count500000'
+  - 'traj_minmax_data/train_2d_40_length30_dim2_normtraj_minmax_count500000'
+  - 'traj_minmax_data/train_2d_40_length40_dim2_normtraj_minmax_count500000'
+  - 'traj_minmax_data/train_3d_40_length10_dim3_normtraj_minmax_count200000'
+  - 'traj_minmax_data/train_3d_40_length20_dim3_normtraj_minmax_count200000'
+  - 'traj_minmax_data/train_3d_40_length30_dim3_normtraj_minmax_count200000'
+  - 'traj_minmax_data/train_3d_40_length40_dim3_normtraj_minmax_count200000'
+  - 'traj_minmax_data/train_4d_40_length10_dim4_normtraj_minmax_count100000'
+  - 'traj_minmax_data/train_4d_40_length20_dim4_normtraj_minmax_count100000'
+  - 'traj_minmax_data/train_4d_40_length30_dim4_normtraj_minmax_count100000'
+  - 'traj_minmax_data/train_4d_40_length40_dim4_normtraj_minmax_count100000'
+  - 'traj_minmax_data/train_5d_40_length10_dim5_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_5d_40_length20_dim5_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_5d_40_length30_dim5_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_5d_40_length40_dim5_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_6d_40_length10_dim6_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_6d_40_length20_dim6_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_6d_40_length30_dim6_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_6d_40_length40_dim6_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_7d_40_length10_dim7_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_7d_40_length20_dim7_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_7d_40_length30_dim7_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_7d_40_length40_dim7_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_8d_40_length10_dim8_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_8d_40_length20_dim8_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_8d_40_length30_dim8_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_8d_40_length40_dim8_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_9d_40_length10_dim9_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_9d_40_length20_dim9_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_9d_40_length30_dim9_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_9d_40_length40_dim9_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_10d_40_length10_dim10_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_10d_40_length20_dim10_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_10d_40_length30_dim10_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_10d_40_length40_dim10_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_11d_40_length10_dim11_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_11d_40_length20_dim11_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_11d_40_length30_dim11_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_11d_40_length40_dim11_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_12d_40_length10_dim12_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_12d_40_length20_dim12_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_12d_40_length30_dim12_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_12d_40_length40_dim12_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_13d_40_length10_dim13_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_13d_40_length20_dim13_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_13d_40_length30_dim13_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_13d_40_length40_dim13_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_14d_40_length10_dim14_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_14d_40_length20_dim14_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_14d_40_length30_dim14_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_14d_40_length40_dim14_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_15d_40_length10_dim15_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_15d_40_length20_dim15_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_15d_40_length30_dim15_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_15d_40_length40_dim15_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_16d_40_length10_dim16_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_16d_40_length20_dim16_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_16d_40_length30_dim16_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_16d_40_length40_dim16_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_17d_40_length10_dim17_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_17d_40_length20_dim17_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_17d_40_length30_dim17_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_17d_40_length40_dim17_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_18d_40_length10_dim18_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_18d_40_length20_dim18_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_18d_40_length30_dim18_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_18d_40_length40_dim18_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_19d_40_length10_dim19_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_19d_40_length20_dim19_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_19d_40_length30_dim19_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_19d_40_length40_dim19_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_20d_40_length10_dim20_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_20d_40_length20_dim20_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_20d_40_length30_dim20_normtraj_minmax_count50000'
+  - 'traj_minmax_data/train_20d_40_length40_dim20_normtraj_minmax_count50000'
+valid_paths:
+  - 'traj_minmax_data/valid_2d_40_length10_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length20_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length30_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_2d_40_length40_dim2_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length10_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length20_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length30_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_3d_40_length40_dim3_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_4d_40_length10_dim4_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_4d_40_length20_dim4_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_4d_40_length30_dim4_normtraj_minmax_count5000'
+  - 'traj_minmax_data/valid_4d_40_length40_dim4_normtraj_minmax_count5000'
+
+sample_type: uniform
+norm_type: traj_minmax
+run_test: false
+eval_only: false
+wandb_log: true
+wandb_project: Full_Model
+
+# Training
+batch_size: 64
+gradient_accumulation_steps: 16
+learning_rate: 0.0006
+weight_decay: 0.1
+beta1: 0.9
+beta2: 0.95
+grad_clip: 1.0
+eval_interval: 5000
+save_interval: 5000
+log_interval: 500
+eval_iters: 1
+max_iters: 250000
+decay_lr: true
+warmup_iters: 5000
+
+# Model
+dropout: 0.0
+bias: false
+num_action_bins: 2000
+max_step: 100
+max_dim: 50
+train_dim: 20
+train_length: 50
+test_dim: 2
+compile: true
+init_from: scratch
+
+# System
+dtype: bfloat16
+backend: nccl
