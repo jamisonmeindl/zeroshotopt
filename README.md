@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ```
 ## Data and Pretrained model
 
-Our dataset and pretrained model can be found at the following [link](https://drive.google.com/drive/folders/1KZem-bjWFTSe94ykSBW8QsseN3vsb-N4?usp=drive_link). This contains training data from 2D to 20D that was used to train our full model, as well as our test results. This data is contained within pickle files for each dimension that contain all the information about each trajectory, including actions, states, and metadata. Each pickle file contains a NumPy array with a dictionary representing each trajectory as an entry in this array. Additionally, the folder contains our pretrained model that can be used to reproduce our results using the testing methodology described below.
+Our dataset and pretrained model can be found at the following [link](https://www.dropbox.com/scl/fo/t2r2212ebsstsako2fnig/ACRP_D286WIvowm-jRV9tQo?rlkey=izvljf3z9gk96k1p42ki02cit&st=w4es6wz0&dl=0). This contains training data from 2D to 20D that was used to train our full model, as well as our test results. This data is contained within pickle files for each dimension that contain all the information about each trajectory, including actions, states, and metadata. Each pickle file contains a NumPy array with a dictionary representing each trajectory as an entry in this array. Additionally, the folder contains our pretrained model that can be used to reproduce our results using the testing methodology described below.
 
 ## Data Generation
 
