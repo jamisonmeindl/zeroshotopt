@@ -1,6 +1,7 @@
 # ZeroShotOpt
+[overall figure](https://github.com/user-attachments/files/20674560/overall_fig_may.pdf)
 
-This repository contains the code for ZeroShotOpt, including the data generation, compilation, training, and testing of the model. 
+This repository contains the code for ZeroShotOpt, a transformer-based model for zero-shot global black-box optimization. It serves as a "plug-and-play" optimizer, addressing the common issue where the performance of state-of-the-art methods like Bayesian optimization (BO) depends on hand-tuned hyperparameters that fail to generalize. The model is trained on millions of synthetic functions generated using Gaussian processes  and demonstrates strong generalization to various synthetic and real-world benchmarks. ZeroShotOpt is trained using offline reinforcement learning on a large dataset of optimization trajectories collected from 12 BO variants. It is a 200 million parameter model trained on data ranging from 2D to 20D. The model has been tested on benchmarks including the Virtual Library of Simulated Experiments (VLSE), the Black-Box Optimization Benchmark (BBOB), and the Hyperparameter Optimization Benchmark (HPO-B). On these unseen tasks, ZEROSHOTOPT matches or surpasses the sample efficiency of leading global optimizers. The entire pipeline, including data generation, training, and testing of the model, as well as the dataset and pretrained model, are included in this repository.
 
 ## Installation
 Uses **Python 3.11**. Install dependencies with:
