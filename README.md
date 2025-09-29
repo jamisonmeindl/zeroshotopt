@@ -1,6 +1,7 @@
 # ZeroShotOpt
+![overall_fig2](https://github.com/user-attachments/assets/63f62bf9-3ebc-4af3-93b8-9f92273753bf)
 
-This repository contains the code for ZeroShotOpt, including the data generation, compilation, training, and testing of the model. 
+This repository contains the code for ZeroShotOpt, a transformer-based model for zero-shot global black-box optimization. It serves as a "plug-and-play" optimizer, addressing the common issue where the performance of state-of-the-art methods like Bayesian optimization (BO) depends on hand-tuned hyperparameters that fail to generalize. The model is trained on millions of synthetic functions generated using Gaussian processes  and demonstrates strong generalization to various synthetic and real-world benchmarks. ZeroShotOpt is trained using offline reinforcement learning on a large dataset of optimization trajectories collected from 12 BO variants. It is a 200 million parameter model trained on data ranging from 2D to 20D. The model has been tested on benchmarks including the Virtual Library of Simulated Experiments (VLSE), the Black-Box Optimization Benchmark (BBOB), and the Hyperparameter Optimization Benchmark (HPO-B). On these unseen tasks, ZeroShotOpt matches or surpasses the sample efficiency of leading global optimizers. The entire pipeline, including data generation, training, and testing of the model, as well as the dataset and pretrained model, are included in this repository.
 
 ## Installation
 Uses **Python 3.11**. Install dependencies with:
@@ -10,7 +11,7 @@ pip install -r requirements.txt
 ```
 ## Data and Pretrained model
 
-Our dataset and pretrained model can be found at the following [link](https://drive.google.com/drive/folders/1KZem-bjWFTSe94ykSBW8QsseN3vsb-N4?usp=drive_link). This contains training data from 2D to 20D that was used to train our full model, as well as our test results. This data is contained within pickle files for each dimension that contain all the information about each trajectory, including actions, states, and metadata. Each pickle file contains a NumPy array with a dictionary representing each trajectory as an entry in this array. Additionally, the folder contains our pretrained model that can be used to reproduce our results using the testing methodology described below.
+Our dataset and pretrained model can be found at the following [link](https://www.dropbox.com/scl/fo/t2r2212ebsstsako2fnig/ACRP_D286WIvowm-jRV9tQo?rlkey=izvljf3z9gk96k1p42ki02cit&st=w4es6wz0&dl=0). This contains training data from 2D to 20D that was used to train our full model, as well as our test results. This data is contained within pickle files for each dimension that contain all the information about each trajectory, including actions, states, and metadata. Each pickle file contains a NumPy array with a dictionary representing each trajectory as an entry in this array. Additionally, the folder contains our pretrained model that can be used to reproduce our results using the testing methodology described below.
 
 ## Data Generation
 
