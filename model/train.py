@@ -12,7 +12,6 @@ $ torchrun --nproc-per-node=4 train.py --config simple_model.yaml
 import os
 import time
 import math
-import pickle
 from contextlib import nullcontext
 
 import numpy as np
@@ -20,24 +19,15 @@ import torch
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.distributed import init_process_group, destroy_process_group
 from torch.utils.data.distributed import DistributedSampler
-from torch.utils.data import WeightedRandomSampler
-
 from datetime import timedelta
 
 from model import GPTConfig, GPT
 from torch.utils.data import Dataset, DataLoader
 import json
-import random
-from torch.distributions.categorical import Categorical
 import sys
 project_base_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 sys.path.append(project_base_dir)
 
-import envs
-from envs.utils import get_initial_observations, render_env_saved
-import gymnasium as gym
-import itertools
-import scipy.special
 import yaml
 import argparse
 
@@ -47,7 +37,7 @@ args = parser.parse_args()
 
 with open(args.config, 'r') as f:
     config = yaml.safe_load(f)
-env_id = f'GP2Env-{config["train_dim"]}D-v0'
+env_id = f'GPEnv-{config["train_dim"]}D-v0'
 
 class TrajectoryDataset(Dataset):
     def __init__(self, paths, augment, uniform):
@@ -393,8 +383,6 @@ if compile:
 if ddp:
     model = DDP(model, device_ids=[ddp_local_rank])
 
-
-
 @torch.no_grad()
 def estimate_loss(valid_data_iters):
     out = {}
@@ -492,8 +480,6 @@ while True:
         scaler.unscale_(optimizer)
         total_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), config['grad_clip'])
         if master_process:
-
-            
             if iter_num % config['log_interval'] == 0:
                 if total_norm > config['grad_clip']:
                     print(f"Gradients were clipped. Total norm before clipping: {total_norm:.2f}")

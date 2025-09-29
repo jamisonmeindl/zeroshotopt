@@ -26,14 +26,12 @@ import numpy as np
 import torch
 import gymnasium as gym
 import warnings
-import csv  
 warnings.filterwarnings("ignore")
 
 project_base_dir = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 sys.path.append(project_base_dir)
 
-import envs
-from envs.utils import get_initial_observations, render_env_saved
+from envs.utils import get_initial_observations
 from envs.valid_envs import vlse_envs
 from model import GPTConfig, GPT
 import pickle
@@ -145,11 +143,6 @@ def test(idx, seed, env_id, num_init_steps, num_steps, model,device, norm_type, 
                     upper_scaled_change = 0.1
                     lower_scaled_change = 0.2
                     norm_states = (norm_states * (1-(upper_scaled_change + lower_scaled_change))) + lower_scaled_change
-                elif norm_type == 'traj_minmax_scaled_low':
-                    norm_states = (states - minimum) / (maximum - minimum + 1e-5)
-                    upper_scaled_change = 0.05 + 0.05*((num_init_steps+num_steps-j)/num_steps)
-                    lower_scaled_change = 0.05 + 0.05*((num_init_steps+num_steps-j)/num_steps)
-                    norm_states = (norm_states * (1-(upper_scaled_change + lower_scaled_change))) + lower_scaled_change
                 elif norm_type == 'traj_minmax_scaled':
                     norm_states = (states - minimum) / (maximum - minimum + 1e-5)
                     upper_scaled_change = 0.05 + 0.05*((num_init_steps+num_steps-j)/num_steps)
@@ -205,13 +198,6 @@ def test(idx, seed, env_id, num_init_steps, num_steps, model,device, norm_type, 
                         top_p_probs = top_p_probs / top_p_probs.sum()
                         
                         sample_idx = top_p_indices[torch.multinomial(top_p_probs, num_samples=1)].item()
-                    # elif sampling == 'full_sample':
-                    #     if temperature == 0:
-                    #         sample_idx = torch.argmax(indi_pred).item()
-                    #     else:
-                    #         scaled_logits = indi_pred / temperature
-                    #         probs = torch.softmax(scaled_logits, dim=-1)
-                    #         sample_idx = torch.multinomial(probs, num_samples=1).item()
                     
                     if sample_idx == 0:
                         sample = torch.tensor([-1.0]).unsqueeze(0)
@@ -237,7 +223,7 @@ def test(idx, seed, env_id, num_init_steps, num_steps, model,device, norm_type, 
                     new_action = True
             action_arr[j] = action    
 
-            obs, _, terminated, truncated, info = env.step(action)
+            obs, _, _, _, _ = env.step(action)
 
             obs = torch.Tensor(obs)
             obs_history = torch.cat([obs_history, obs.unsqueeze(0).unsqueeze(0)], dim=1)

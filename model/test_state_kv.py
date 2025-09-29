@@ -88,12 +88,9 @@ def parse_args():
     return args
 
 def test(idx, seed, env_id, num_init_steps, num_steps, model,device, norm_type, length_type, sampling, overall_min_achieved, min_achieved, max_achieved, temperature, ev_style, batch_size, num_action_bins, visualize=False, name=''):
-    # if verbose:
-    #     print(f"Testing environment {idx+1}")
     random.seed(seed + idx)
     np.random.seed(seed + idx)
     torch.manual_seed(seed + idx)
-    # print(seed+idx)
     if 'vlse' in env_id:
         dim = env_id.split('_')[-1][:-1]
         env_ids = vlse_envs[dim]
@@ -138,7 +135,6 @@ def test(idx, seed, env_id, num_init_steps, num_steps, model,device, norm_type, 
     midpoints = ((action_bins[:-1] + action_bins[1:]) / 2.0).to(device)
 
     with torch.no_grad():
-        target = env.unwrapped.f.v
         while j < num_steps + num_init_steps:
             history = obs_history.clone()
             actions = history[:,:,:action_dim]
