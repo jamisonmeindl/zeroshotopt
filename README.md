@@ -1,5 +1,6 @@
 # ZeroShotOpt
-![overall_fig2](https://github.com/user-attachments/assets/63f62bf9-3ebc-4af3-93b8-9f92273753bf)
+[overall_fig_state.pdf](https://github.com/user-attachments/files/22605172/overall_fig_state.pdf)
+
 
 This repository contains the code for ZeroShotOpt, a transformer-based model for zero-shot global black-box optimization. It serves as a "plug-and-play" optimizer, addressing the common issue where the performance of state-of-the-art methods like Bayesian optimization (BO) depends on hand-tuned hyperparameters that fail to generalize. The model is trained on millions of synthetic functions generated using Gaussian processes  and demonstrates strong generalization to various synthetic and real-world benchmarks. ZeroShotOpt is trained using offline reinforcement learning on a large dataset of optimization trajectories collected from 12 BO variants. It is a 200 million parameter model trained on data ranging from 2D to 20D. The model has been tested on benchmarks including the Virtual Library of Simulated Experiments (VLSE), the Black-Box Optimization Benchmark (BBOB), and the Hyperparameter Optimization Benchmark (HPO-B). On these unseen tasks, ZeroShotOpt matches or surpasses the sample efficiency of leading global optimizers. The entire pipeline, including data generation, training, and testing of the model, as well as the dataset and pretrained model, are included in this repository.
 
@@ -39,7 +40,7 @@ Code for compiling data can be found in model/compile.py. This performs preproce
 Training can be done with the following in the model folder:
 
 ```bash
-CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc-per-node=2 train.py --config simple_model.yaml
+CUDA_VISIBLE_DEVICES=0,1 torchrun --nproc-per-node=2 train_state.py --config simple_model.yaml
 ```
 
 Adjustments to the parameters and data used for training are found within the config file. We provide a simple version for testing a small 2D-3D model and the config for our full model. 
@@ -49,16 +50,19 @@ Adjustments to the parameters and data used for training are found within the co
 Testing the model can be done with the following in the model folder:
 
 ```bash
-CUDA_VISIBLE_DEVICES=0 python test.py \
-  --model-path ZeroShotOpt/ckpt.pt \
-  --num-envs 100 \
-  --env-id bbob_2d \
-  --num-steps 40 \
-  --length-type adaptive \
-  --norm-type traj_minmax_scaled_high \
-  --sampling top_p \
-  --input-dir '../baselines/test_100/bbob_2d_40' \
-  --output-dir '../baselines/test_100/bbob_2d_40' 
+CUDA_VISIBLE_DEVICES=0 python test_state_kv.py  \
+    --model-path ZeroShotOptState/ckpt.pt \
+    --num-envs 100 \
+    --env-id bbob_2d \
+    --num-steps 40 \
+    --length-type adaptive \
+    --norm-type traj_minmax_scaled_high \
+    --sampling top_p \
+    --input-dir '../baselines/test_100/bbob_2d_40' \
+    --output-dir '../baselines/test_100/bbob_2d_40' \
+    --ev-style linear \
+    --batch-size 4 \
+    --num-action-bins 2000
 ```
 You can adjust the parameters and model used for testing. Currently, testing is limited to environments following our specified structure. We plan to expand support for additional function formats in future updates.
 
